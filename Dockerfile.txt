@@ -1,0 +1,17 @@
+#Specify the Docker Image
+FROM node:apline
+
+WORKDIR /usr/app
+
+#Download and Install the Dependancys
+#RUN apk add --updates redis
+#RUN apk add --updates gcc
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+
+#Default COMAND
+CMD ["npm", "start" ]
+
+
+
